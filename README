@@ -1,0 +1,41 @@
+
+README
+
+
+
+The dataset used is called tinywilde.txt in /data/wilde/tinywilde.txt which is comprised of
+	three Oscar Wilde plays: Importance of Being Earnest, A Woman of No Importance, and
+	An Ideal Husband.
+
+
+I built my own LSTM cell in order to practice tensorflow and better understand what's going 
+	on internally within the LSTM cell. That is what the lstm_cell.py file is, and it has 3
+	objects, a regular lstm, a stacked lstm, and a stacked lstm with peep hole, which is the one I trained with and used with 3 layers and the cell state size being double my character
+	dictionary size
+
+My final error of my submission is around 0.9, and little higher on my validation set.
+	I managed to get it lower, to about 0.6, but never consistently, for even with grad
+	clipping, when it got that low it would consistently mess up between 1.0 and 0.6 error, 
+	and go back to my initial error or even higher. Probably some sort of exploding gradient,
+	and to compensate that I used a more aggressive learning rate decay which was more 
+	consistent, but ends up with higher error (around 0.9) after the 120 epochs that I ran 
+	it for, I could have ran it for longer but I did not have the patience. 
+
+
+To run the code do, 
+
+	python -i lstm_out.py
+	>> train(num_epochs)
+	>> sample(num_chars)
+
+
+The first trains for num_epochs
+
+The second samples num_chars from given trained model, 
+	with the default being models/lstm_model_final.ckpt
+
+
+
+
+
+
